@@ -8,12 +8,13 @@ result = requests.get(url)
 content = BeautifulSoup(result.text, 'html.parser')
 
 #1
-one = content.find('h2')
-print(one)
-#2
-other = content.findAll('h2')
-print(other)
-#3
-for a in other :
-    print(a)
+answer1 = content.find('h1')
 
+
+print(answer1)
+print(answer1.name)
+print(answer1.text)
+print(answer1.get_text())
+print(answer1.contents)
+print(answer1.attrs)
+print(answer1.get('id'))
