@@ -16,5 +16,3 @@ print(r.text)
 
 
 
-
-
