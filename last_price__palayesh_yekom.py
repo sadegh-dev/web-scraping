@@ -13,3 +13,14 @@ driver = webdriver.Chrome(PATH)
 driver.get("http://www.tsetmc.com/Loader.aspx?ParTree=151311&i=67675656072510693")
 
 
+try:
+    content = WebDriverWait(driver, 20).until(
+        EC.text_to_be_present_in_element((By.ID,"dsp"), ",")
+    ) 
+
+    sell_price = driver.find_element( By.ID ,"dsp")
+    print(sell_price.text)
+except:
+    print('Element Not Load')
+finally:
+    driver.quit()
