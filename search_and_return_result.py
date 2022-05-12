@@ -15,13 +15,14 @@ driver.get("http://boursepress.ir/")
 # Search
 
 search = driver.find_element(by=By.NAME, value="q")
+search.clear()
 search.send_keys("پالایش یکم")
 search.send_keys(Keys.RETURN)
 
 
 try:
     content = WebDriverWait(driver, 20).until(
-        EC.presence_of_all_elements_located((By.ID,"ucSearch_divCohghghntent"))
+        EC.presence_of_all_elements_located((By.ID,"ucSearch_divContent"))
     ) 
 
     # Read titles
