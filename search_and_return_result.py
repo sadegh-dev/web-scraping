@@ -22,12 +22,12 @@ search.send_keys(Keys.RETURN)
 
 try:
     content = WebDriverWait(driver, 20).until(
-        EC.presence_of_all_elements_located((By.ID,"ucSearch_divContent"))
+        EC.presence_of_element_located((By.ID,"ucSearch_divContent"))
     ) 
 
     # Read titles
 
-    articles = driver.find_elements(by=By.TAG_NAME, value="li")
+    articles = content.find_elements(by=By.TAG_NAME, value="li")
     for article in articles :
         header = article.find_element(by=By.TAG_NAME, value= "a")
         print(header.text)

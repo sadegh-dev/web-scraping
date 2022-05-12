@@ -3,38 +3,34 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import time
 
 
 PATH = "/usr/bin/chromedriver"
 driver = webdriver.Chrome(PATH)
 
 driver.get("https://www.w3schools.com/")
-link = driver.find_element_by_link_text("Learn Python")
 
-
+link = driver.find_element(by=By.LINK_TEXT, value="Python Reference")
 link.click()
 
-
-
-"""
-
-search = driver.find_element(by=By.NAME, value="q")
-search.clear()
-search.send_keys("پالایش یکم")
-search.send_keys(Keys.RETURN)
-
-
 try:
-    content = WebDriverWait(driver, 20).until(
-        EC.presence_of_all_elements_located((By.ID,"ucSearch_divContent"))
+    element = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.LINK_TEXT, "Built-in Functions"))
     ) 
+    element.click()
 
-    # Read titles
+    element = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.LINK_TEXT, "format()"))
+    ) 
+    element.click()
 
-    articles = driver.find_elements(by=By.TAG_NAME, value="li")
-    for article in articles :
-        header = article.find_element(by=By.TAG_NAME, value= "a")
-        print(header.text)
+    driver.back()
+    driver.back()
+    driver.back()
+    driver.forward()
+    driver.forward()
+    driver.forward()
 
 except:
     print('Error! , Element Not Load')
@@ -42,4 +38,3 @@ except:
 finally:
     driver.quit()
 
-"""
