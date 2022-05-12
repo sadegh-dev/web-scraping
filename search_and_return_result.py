@@ -21,7 +21,7 @@ search.send_keys(Keys.RETURN)
 
 try:
     content = WebDriverWait(driver, 20).until(
-        EC.presence_of_all_elements_located((By.ID,"ucSearch_divContent"))
+        EC.presence_of_all_elements_located((By.ID,"ucSearch_divCohghghntent"))
     ) 
 
     # Read titles
@@ -33,7 +33,6 @@ try:
 
 except:
     print('Error! , Element Not Load')
-    driver.quit()
 
 finally:
     driver.quit()
